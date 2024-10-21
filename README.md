@@ -1,52 +1,55 @@
-# CoWorkBooker
+# Metro Shop
 
-### Live URL: &nbsp; &nbsp; [co-work-booker.vercel.app](https://co-work-booker.vercel.app/)
+### Live URL: &nbsp; &nbsp; [metro-shop-server.vercel.app](https://metro-shop-server.vercel.app/)
 
 ## Description:
 
-CoWorkBooker is a web application designed to manage room reservations for co-working spaces. It provides a streamlined booking process for both administrators and users, ensuring efficient management of meeting rooms and time slots.
+MetroShop is a full-stack e-commerce platform built to provide a seamless shopping experience for users while offering robust administrative functionalities. It includes user roles for both general users and administrators, focusing on intuitive navigation, secure payments, and efficient product management.
 
 ### Admin Actions:
 
-Administrators have comprehensive control over the co-working space inventory:
+Administrators have extensive control over the platform, enabling them to:
 
-- Create, update, and delete rooms with details such as name, number, floor, capacity, price per slot, and amenities.
-- Manage time slots for each room, setting dates, start times, and end times to ensure availability.
+- Manage products by adding, editing, and deleting items, including detailed information like product name, price, stock, categories, and images.
+- Manage categories for better product organization, ensuring easy navigation for users.
+- View and update orders placed by users, allowing actions like order confirmation and cancellation.
+- Manage user accounts, including the ability to change roles or remove users.
 
 ### User Interactions:
 
-Users can effortlessly book rooms for their meetings:
+Users can effortlessly browse and shop through MetroShop’s catalog:
 
-- Select available time slots on desired dates.
-- Input booking details including room selection and preferred slots.
-- Automatically calculate total costs based on slots chosen and prices per slot.
-- Receive real-time updates on room and slot availability to avoid conflicts.
+- Browse and search through a wide range of products, filtering by categories, price, and more.
+- View detailed information for each product, including reviews and availability.
+- Add items to their shopping cart and proceed to a smooth checkout process with integrated payment gateways.
+- View their order history with detailed records of past purchases, status updates, and payment information.
 
 ### Validation and Error Handling:
 
-CoWorkBooker implements robust mechanisms for seamless user experiences:
+MetroShop ensures robust error handling mechanisms:
 
-- Informative error messages for booking conflicts and validation errors.
-- Ensure smooth interactions and accurate data handling.
+- Informative error messages for issues like product availability, payment errors, or invalid inputs.
+- Ensures secure and seamless shopping experiences.
 
 ## Features
 
-- **User Management**: Enable users to sign up, log in, and manage their accounts securely.
-- **Room Management**: Allow admins to add, update, delete, and view co-working rooms.
-- **Slot Management**: Enable admins to create, update, and delete time slots for room bookings.
-- **Booking Management**: Facilitate users in creating, viewing, and canceling bookings.
-- **Availability Check**: Provide endpoints to check slot availability for specific dates.
+- **User Management:**: Secure user authentication with sign-up, login, and role-based access control for admins.
+- **Product Management:**: Allows admins to manage products with full CRUD functionality, including images and categories.
+- **Order Management:**: Facilitates viewing, updating, and canceling of user orders.
+- **Category Management:**: Admins can create, update, and delete categories for better product organization.
+- **Shopping Cart:**: Users can add products to their cart, update quantities, and proceed to checkout.
+- **Payment Gateway Integration:**: Secure online payment using Aamarpay for seamless transactions.
 - **Error Handling**: Implement robust error handling middleware for consistent and informative responses.
 - **Authentication & Authorization**: Secure API endpoints using JWT-based authentication and role-based authorization.
 - **Data Validation**: Ensure data integrity and consistency with Zod for input validation.
 
 ## Technology Stack
 
-- **TypeScript**: Provides type safety and enhanced code quality.
-- **Express.js**: Fast, minimalist web framework for Node.js, ideal for building RESTful APIs.
-- **Mongoose**: Elegant MongoDB object modeling for Node.js, simplifying interactions with MongoDB.
-- **JWT (JSON Web Tokens)**: Securely transfer claims between parties for authentication purposes.
-- **Zod**: TypeScript-first schema declaration and validation library, ensuring data consistency and preventing runtime errors.
+- **Next.js:** Server-side rendering for optimized user experiences and SEO benefits.
+- **Node.js & Express:** For building fast, scalable REST APIs.
+- **MongoDB:** Document-based database, ideal for product and order management.
+- **JWT (JSON Web Tokens):** For secure user authentication and authorization.
+- **Zod:** Schema validation to ensure data integrity across the platform.
 
 ## Getting Started
 
@@ -61,13 +64,13 @@ CoWorkBooker implements robust mechanisms for seamless user experiences:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/mdsejan/co-work-booker.git
+   git clone https://github.com/mdsejan/MetroShop-server.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd CoWorkBooker
+   cd metro-shop-server
    ```
 
 3. Install dependencies:
