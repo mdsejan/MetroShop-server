@@ -51,9 +51,20 @@ const updateUserIntoDB = async (id: string, payload: Partial<IUser>) => {
   return result;
 };
 
+// ===> Delete a User <===
+const deleteUserFromDB = async (id: string) => {
+  const result = await UserModel.findByIdAndUpdate(
+    id,
+    { isDeleted: true },
+    { new: true }
+  );
+  return result;
+};
+
 export const userServices = {
   signupUserIntoDB,
   loginUserIntoDB,
   getUserByIdFromDB,
   updateUserIntoDB,
+  deleteUserFromDB,
 };

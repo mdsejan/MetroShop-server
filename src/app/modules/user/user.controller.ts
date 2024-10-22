@@ -95,9 +95,29 @@ const updateUser = catchAsync(async (req, res) => {
   });
 });
 
+// ===> Delete a User <===
+const deleteUser = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  if (!id) {
+    throw new Error("Data is invalid or null");
+  }
+  const result = await userServices.deleteUserFromDB(id);
+  if (!result) {
+    return noDataFound(res);
+  }
+
+  sendResponse(res, {
+    success: true,
+    statusCode: StatusCodes.OK,
+    message: "User deleted successfully",
+    data: result,
+  });
+});
+
 export const userController = {
   signupUser,
   loginUser,
   getUserById,
   updateUser,
+  deleteUser,
 };

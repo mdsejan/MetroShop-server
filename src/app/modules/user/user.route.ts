@@ -17,5 +17,6 @@ router.post(
 router.post("/login", userController.loginUser);
 router.put("/:id", auth, isAdmin, userController.updateUser);
 router.get("/user/:id", auth, isAdmin, userController.getUserById);
+router.delete("/:id", auth, isAdmin, userController.deleteUser);
 
 export const UserRoutes = router;
