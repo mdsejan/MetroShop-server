@@ -6,6 +6,7 @@ import { userServices } from "./user.service";
 import noDataFound from "../../error/noDataFound";
 import { StatusCodes } from "http-status-codes";
 
+// ===> Register User <===
 const signupUser = catchAsync(async (req, res) => {
   const data = req.body;
 
@@ -25,6 +26,7 @@ const signupUser = catchAsync(async (req, res) => {
   });
 });
 
+// ===> Login User <===
 const loginUser = catchAsync(async (req, res) => {
   const { email, password } = req.body;
 
@@ -76,8 +78,26 @@ const getUserById = catchAsync(async (req, res) => {
   });
 });
 
+// ===> Update User By Id <===
+const updateUser = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await userServices.updateUserIntoDB(id, req.body);
+
+  if (!result) {
+    return noDataFound(res);
+  }
+
+  sendResponse(res, {
+    success: true,
+    statusCode: StatusCodes.OK,
+    message: "User updated successfully",
+    data: result,
+  });
+});
+
 export const userController = {
   signupUser,
   loginUser,
   getUserById,
+  updateUser,
 };

@@ -43,8 +43,17 @@ const getUserByIdFromDB = async (id: string) => {
   return result;
 };
 
+// ===> Update User <===
+const updateUserIntoDB = async (id: string, payload: Partial<IUser>) => {
+  const result = await UserModel.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
+
 export const userServices = {
   signupUserIntoDB,
   loginUserIntoDB,
   getUserByIdFromDB,
+  updateUserIntoDB,
 };
