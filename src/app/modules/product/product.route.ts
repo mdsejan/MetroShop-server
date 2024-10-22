@@ -12,7 +12,7 @@ router.post(
   validateRequest(ProductValidation.productValidationSchema),
   productControllers.createProduct
 );
-
+router.get("/", productControllers.getProducts);
 router.put("/:id", auth, isAdmin, productControllers.updateProduct);
 router.delete("/:id", auth, isAdmin, productControllers.deleteProduct);
 

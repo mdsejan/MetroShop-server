@@ -9,12 +9,20 @@ const createProductIntoDb = async (data: IProduct) => {
 
 // ===> Get Products from Database <===
 const getProductsFromDB = async (filters: any, skip: number, limit: number) => {
-  const products = await ProductModel.find(filters)
+  const queryFilters = { ...filters, isDeleted: false };
+
+  const products = await ProductModel.find(queryFilters)
     .skip(skip)
     .limit(limit)
-    .sort({ createdAt: -1 }); // Sort by newest
+    .sort({ createdAt: -1 });
 
-  return products;
+  //count of all filtered products for pagination
+  const totalProducts = await ProductModel.countDocuments(queryFilters);
+
+  return {
+    products,
+    totalProducts,
+  };
 };
 
 // ===> Update Product <===

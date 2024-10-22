@@ -57,21 +57,29 @@ const getProducts = catchAsync(async (req, res) => {
   // Pagination options
   const skip = (Number(page) - 1) * Number(limit);
 
-  const result = await ProductServices.getProductsFromDB(
+  const { products, totalProducts } = await ProductServices.getProductsFromDB(
     filterOptions,
     skip,
     Number(limit)
   );
 
-  if (!result || result.length === 0) {
+  if (!products || products.length === 0) {
     return noDataFound(res);
   }
 
+  // paginated products and total count
   sendResponse(res, {
     success: true,
     statusCode: StatusCodes.OK,
     message: "Products retrieved successfully",
-    data: result,
+    data: {
+      products,
+      pagination: {
+        total: totalProducts,
+        currentPage: Number(page),
+        totalPages: Math.ceil(totalProducts / Number(limit)),
+      },
+    },
   });
 });
 
