@@ -111,38 +111,46 @@ The server will start running at `http://localhost:5000`.
 
    - **Route:** `{domain}/api/auth/login` `POST`
 
-3. **Create Room (Only Accessible by Admin)**
+3. **Update User**
+
+   - **Route:** `{domain}/api/auth/:id` `PUT`
+
+4. **delete User**
+
+   - **Route:** `{domain}/api/auth/:id` `DELETE`
+
+5. **Create Room (Only Accessible by Admin)**
 
    - **Route:** `{domain}/api/rooms` `POST`
 
-4. **Get a Room**
+6. **Get a Room**
 
    - **Route:** `{domain}/api/rooms/:id` `GET`
 
-5. **Get All Rooms**
+7. **Get All Rooms**
 
    - **Route:** `{domain}/api/rooms` `GET`
 
-6. **Update Room (Only Accessible by Admin)**
+8. **Update Room (Only Accessible by Admin)**
 
    - **Route:** `{domain}/api/rooms/:id` `PUT`
 
-7. **Delete a Room (Soft Delete, Only Accessible by Admin)**
+9. **Delete a Room (Soft Delete, Only Accessible by Admin)**
 
    - **Route:** `{domain}/api/rooms/:id` `DELETE`
 
-8. **Create Slot (Only Accessible by Admin)**
+10. **Create Slot (Only Accessible by Admin)**
 
-   - **Route:** `{domain}/api/slots` `POST`
+    - **Route:** `{domain}/api/slots` `POST`
 
-9. **Get available slots**
+11. **Get available slots**
 
-   - **Route:** `{domain}/api/slots/availability` `GET`
-   - **Route:** `{domain}/api/slots/availability?date=2024-06-15` `GET`
-   - **Route:** `{domain}/api/slots/availability?roomId=60d9c4e4f3b4b544b8b8d1c5` `GET`
-   - **Route:** `{domain}/api/slots/availability?date=2024-06-15&roomId=60d9c4e4f3b4b544b8b8d1c5` `GET`
+- **Route:** `{domain}/api/slots/availability` `GET`
+- **Route:** `{domain}/api/slots/availability?date=2024-06-15` `GET`
+- **Route:** `{domain}/api/slots/availability?roomId=60d9c4e4f3b4b544b8b8d1c5` `GET`
+- **Route:** `{domain}/api/slots/availability?date=2024-06-15&roomId=60d9c4e4f3b4b544b8b8d1c5` `GET`
 
-10. **Create a Booking (Only Accessible by Authenticated User)**
+11. **Create a Booking (Only Accessible by Authenticated User)**
 
 - **Route:** `{domain}/api/bookings` `POST`
 
