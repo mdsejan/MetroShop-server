@@ -7,6 +7,16 @@ const createProductIntoDb = async (data: IProduct) => {
   return result;
 };
 
+// ===> Get Products from Database <===
+const getProductsFromDB = async (filters: any, skip: number, limit: number) => {
+  const products = await ProductModel.find(filters)
+    .skip(skip)
+    .limit(limit)
+    .sort({ createdAt: -1 }); // Sort by newest
+
+  return products;
+};
+
 // ===> Update Product <===
 const updateProductIntoDB = async (id: string, payload: Partial<IProduct>) => {
   const result = await ProductModel.findOneAndUpdate({ _id: id }, payload, {
@@ -27,6 +37,7 @@ const deleteProductFromDB = async (id: string) => {
 
 export const ProductServices = {
   createProductIntoDb,
+  getProductsFromDB,
   updateProductIntoDB,
   deleteProductFromDB,
 };

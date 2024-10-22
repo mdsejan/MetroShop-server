@@ -24,6 +24,57 @@ const createProduct = catchAsync(async (req, res) => {
   });
 });
 
+// ===> Get Products with Search, Filters, and Pagination <===
+const getProducts = catchAsync(async (req, res) => {
+  const {
+    keyword,
+    category,
+    minPrice,
+    maxPrice,
+    page = 1,
+    limit = 10,
+  } = req.query;
+
+  const filterOptions: any = {};
+
+  // Search by keyword
+  if (keyword) {
+    filterOptions.name = { $regex: keyword, $options: "i" };
+  }
+
+  // Filter by category
+  if (category) {
+    filterOptions.category = category;
+  }
+
+  // Filter by price range
+  if (minPrice || maxPrice) {
+    filterOptions.price = {};
+    if (minPrice) filterOptions.price.$gte = Number(minPrice);
+    if (maxPrice) filterOptions.price.$lte = Number(maxPrice);
+  }
+
+  // Pagination options
+  const skip = (Number(page) - 1) * Number(limit);
+
+  const result = await ProductServices.getProductsFromDB(
+    filterOptions,
+    skip,
+    Number(limit)
+  );
+
+  if (!result || result.length === 0) {
+    return noDataFound(res);
+  }
+
+  sendResponse(res, {
+    success: true,
+    statusCode: StatusCodes.OK,
+    message: "Products retrieved successfully",
+    data: result,
+  });
+});
+
 // ===> Update Product By Id <===
 const updateProduct = catchAsync(async (req, res) => {
   const { id } = req.params;
@@ -62,6 +113,7 @@ const deleteProduct = catchAsync(async (req, res) => {
 
 export const productControllers = {
   createProduct,
+  getProducts,
   updateProduct,
   deleteProduct,
 };
