@@ -14,5 +14,6 @@ router.post(
 );
 
 router.put("/:id", auth, isAdmin, productControllers.updateProduct);
+router.delete("/:id", auth, isAdmin, productControllers.deleteProduct);
 
 export const ProductRoutes = router;
