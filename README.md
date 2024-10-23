@@ -931,3 +931,4 @@ Implement an Authentication Middleware to authenticate your application. Ensures
 The API employs Zod for input validation, ensuring data consistency. When validation fails, a 400 Bad Request status code is returned, accompanied by detailed error messages specifying the erroneous fields and reasons.
 
 GET /products?keyword=keyboard&category=mechanical&minPrice=100&maxPrice=500&page=2&limit=10
+http://localhost:5000/api/auth/user/:id

@@ -39,7 +39,7 @@ const loginUserIntoDB = async (email: string, password: string) => {
 
 // ===> Get User By ID <===
 const getUserByIdFromDB = async (id: string) => {
-  const result = await UserModel.findById(id).select("name email");
+  const result = await UserModel.findById(id);
   return result;
 };
 

@@ -68,13 +68,11 @@ const getUserById = catchAsync(async (req, res) => {
     return noDataFound(res);
   }
 
-  const { name, email } = result;
-
   sendResponse(res, {
     success: true,
     statusCode: StatusCodes.OK,
     message: "User retrieved successfully",
-    data: { name, email },
+    data: result,
   });
 });
 
