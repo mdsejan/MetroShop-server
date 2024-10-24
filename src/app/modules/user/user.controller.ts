@@ -108,7 +108,7 @@ const deleteUser = catchAsync(async (req, res) => {
     success: true,
     statusCode: StatusCodes.OK,
     message: "User deleted successfully",
-    data: result,
+    data: "",
   });
 });
 

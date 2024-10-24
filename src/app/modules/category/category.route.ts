@@ -15,6 +15,7 @@ router.post(
   CategoryControllers.createCategory
 );
 
+router.get("/", CategoryControllers.getAllCategory);
 router.put("/:id", auth, isAdmin, CategoryControllers.updateCategory);
 router.delete("/:id", auth, isAdmin, CategoryControllers.deleteCategory);
 

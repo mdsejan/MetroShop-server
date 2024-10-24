@@ -70,7 +70,7 @@ const deleteCategory = catchAsync(async (req, res) => {
     success: true,
     statusCode: StatusCodes.OK,
     message: "Category deleted successfully",
-    data: result,
+    data: "",
   });
 });
 
