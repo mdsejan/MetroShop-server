@@ -9,6 +9,8 @@ const router = express.Router();
 
 router.post(
   "/",
+  auth,
+  isAdmin,
   validateRequest(ProductValidation.productValidationSchema),
   productControllers.createProduct
 );
